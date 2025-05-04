@@ -1,0 +1,34 @@
+(defwidget power-button []
+  (button
+    :onclick "eww open power-menu"
+    :class "power-btn"
+    "⏻"
+    )
+)
+
+(defwidget power-widget []
+  (box
+    :class "power-menu"
+    :orientation "vertical"
+    :space-evenly true
+    :halign "center"
+    :valign "center"
+    (button :onclick "shutdown now" "Spegni")
+    (button :onclick "reboot" "Riavvia")
+    (button :onclick "hyprctl dispatch exit" "Logout")
+    (button :onclick "systemctl suspend" "Sospendi")
+    (button :onclick "eww close power-menu" "Annulla")
+    )
+)
+
+(defwindow power-menu
+  :geometry (geometry :x "700px" :y "300px" :width "150px" :height "220px")
+  :stacking "overlay"
+  :anchor "center"
+  :monitor 0
+  :exclusive false
+  :focusable true
+  :visible false
+  (power-widget)
+)
+

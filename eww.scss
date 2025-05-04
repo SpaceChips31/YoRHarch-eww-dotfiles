@@ -2,12 +2,43 @@
     all: unset;
     font-family: "Iosevka", monospace;
     font-size: 20px;
-  )
+  
+.bar {
+  margin: 8px 12px;
+}
 
 .clock-widget {
-    color: red;
-    background-color: black;
-    border-radius:8px;
-    padding: 0 10px;
+    color: white;
+    background-color: darkgrey;
+    opacity: 0.95;
+    padding: 10px 14px;
+    margin: 6px;
+    border-radius: 16px;
   }
+}
+
+.power-menu {
+  background-color: #1e1e2e;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0 0 10px #00000066;
+
+  button {
+    margin: 5px 0;
+    padding: 0.5em 1em;
+    background-color: #313244;
+    color: #cdd6f4;
+    border-radius: 5px;
+    font-size: 14px;
+
+    &:hover {
+      background-color: #45475a;
+    }
+  }
+}
+
+.power-btn {
+  background-color: transparent;
+  color: #cdd6f4;
+  font-size: 18px;
 }

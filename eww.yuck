@@ -1,5 +1,5 @@
-(include "./widgets/clock.yuck")
-
+(include "/home/chips/.config/eww/widgets/clock.yuck")
+(include "/home/chips/.config/eww/widgets/power.yuck")
 (defpoll clock :interval "1s" "~/.config/eww/scripts/clock.sh")
 
 (defwindow main
@@ -11,5 +11,17 @@
     )
     :stacking "fg"
     :exclusive true
-    (clock-widget)
+    (box
+        :orientation "horizontal"
+        :halign: "top"
+        :valign "right"
+        :space-evenly false
+        :class "bar"
+        (box
+            (clock-widget)
+        )    
+        (box
+            (power-button)
+        )
+    )
 )
