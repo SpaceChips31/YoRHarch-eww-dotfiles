@@ -1,0 +1,6 @@
+(defwidget clock-widget []
+    (label
+        :class "clock-widget"
+        :text "${clock}"
+    )
+)

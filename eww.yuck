@@ -1,0 +1,15 @@
+(include "./widgets/clock.yuck")
+
+(defpoll clock :interval "1s" "~/.config/eww/scripts/clock.sh")
+
+(defwindow main
+    :monitor 0
+    :geometry (geometry
+        :width "90%"
+        :height "30px"
+        :anchor "top center"
+    )
+    :stacking "fg"
+    :exclusive true
+    (clock-widget)
+)
