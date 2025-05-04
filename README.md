@@ -1,2 +1,2 @@
 # YoRHarch-dotfiles
-Classified configuration unit // YoRHarch.
+Classified configuration **eww** unit // YoRHarch.
