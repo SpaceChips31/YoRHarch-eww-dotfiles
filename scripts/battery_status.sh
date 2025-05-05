@@ -1,21 +1,44 @@
-#!/bin/bash
+#!/bin/sh
 
-capacity=$(cat /sys/class/power_supply/BMBT/capacity)
-status=$(cat /sys/class/power_supply/BMBT/status)
+bat=/sys/class/power_supply/BMBT/
+per="$(cat "$bat/capacity")"
 
-if [[ "$status" == "Charging" ]]; then
-    icon=""
-elif (( capacity >= 90 )); then
-    icon=""
-elif (( capacity >= 60 )); then
-    icon=""
-elif (( capacity >= 30 )); then
-    icon=""
-elif (( capacity >= 10 )); then
-    icon=""
+icon() {
+
+[ $(cat "$bat/status") = Charging ] && echo "" && exit
+
+if [ "$per" -gt "90" ]; then
+	icon=""
+elif [ "$per" -gt "80" ]; then
+	icon=""
+elif [ "$per" -gt "70" ]; then
+	icon=""
+elif [ "$per" -gt "60" ]; then
+	icon=""
+elif [ "$per" -gt "50" ]; then
+	icon=""
+elif [ "$per" -gt "40" ]; then
+	icon=""
+elif [ "$per" -gt "30" ]; then
+	icon=""
+elif [ "$per" -gt "20" ]; then
+	icon=""
+elif [ "$per" -gt "10" ]; then
+	icon=""
+	notify-send -u critical "Battery Low" "Connect Charger"
+elif [ "$per" -gt "0" ]; then
+	icon=""
+	notify-send -u critical "Battery Low" "Connect Charger"
 else
-    icon=""
+        echo  && exit
 fi
+echo "$icon"
+}
 
-# Output JSON
-echo "{\"capacity\": $capacity, \"icon\": \"$icon\"}"
+percent() {
+echo $per
+}
+
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "percent" ] && percent && exit
+exit

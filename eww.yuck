@@ -1,27 +1,49 @@
 (include "/home/chips/.config/eww/widgets/clock.yuck")
+(include "/home/chips/.config/eww/widgets/battery.yuck")
 (include "/home/chips/.config/eww/widgets/power.yuck")
+
 (defpoll clock :interval "1s" "~/.config/eww/scripts/clock.sh")
+(defpoll battery :interval "1s"	"~/.config/eww/scripts/battery icon")
+(defpoll battery-cappacity	:interval "1s"	"~/.config/eww/scripts/battery percent")
 
 (defwindow main
-    :monitor 0
-    :geometry (geometry
-        :width "90%"
-        :height "30px"
-        :anchor "top center"
-    )
-    :stacking "fg"
-    :exclusive true
+  :monitor 0
+  :geometry (geometry
+    :width "90%"
+    :height "25px"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive true
+  (box
+    :orientation "horizontal"
+    :halign "fill"
+    :valign "center"
+    :space-evenly false
+    :class "bar"
+
     (box
-        :orientation "horizontal"
-        :halign: "top"
-        :valign "right"
-        :space-evenly false
-        :class "bar"
-        (box
-            (clock-widget)
-        )    
-        (box
-            (power-button)
-        )
+      :hexpand true
     )
+
+    (box
+      :hexpand true
+      :halign "start"
+      (battery-widget)
+    )
+
+    (box
+      :hexpand true
+      :halign "end"
+      (label :text "${battery}")
+      (label :text "${battery-cappacity}")
+      (clock-widget)
+    )
+
+    (box
+      :hexpand true
+      :halign "end"
+      (power-button)
+    )
+  )
 )

@@ -1,6 +1,6 @@
 * {
     all: unset;
-    font-family: "Iosevka", monospace;
+    font-family: JetBrainsMono Nerd Font;
     font-size: 20px;
   
 .bar {
@@ -15,6 +15,16 @@
     margin: 6px;
     border-radius: 16px;
   }
+}
+
+.power-btn {
+  background-color: darkgrey;
+  opacity: 0.95;
+  padding: 4px 8px;
+  margin: 6px;
+  border-radius: 16px;
+  color: #cdd6f4;
+  font-size: 18px;
 }
 
 .power-menu {
@@ -35,14 +45,4 @@
       background-color: #45475a;
     }
   }
-}
-
-.power-btn {
-  background-color: darkgrey;
-  opacity: 0.95;
-  padding: 10px 14px;
-  margin: 6px;
-  border-radius: 16px;
-  color: #cdd6f4;
-  font-size: 18px;
 }

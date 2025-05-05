@@ -1,0 +1,19 @@
+;;(defwidget battery-widget []
+;;	(box	:orientation "h"	
+;;			:space-evenly "false"
+;;	    (label	:class "bat"		
+;;			    :halign "end"		
+;;			    :text battery	
+;;			    :tooltip "Battery: ${battery-cappacity}%"
+;;        )
+;;    )
+;;1)
+
+
+(defwidget battery-widget []
+  (box :orientation "vertical"
+    (label :text "🔋 Battery Widget Test")
+    (label :text "Icona: ")
+    (label :text "Percentuale: 75%")
+  )
+)
